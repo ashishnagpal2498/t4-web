@@ -41,7 +41,7 @@ const Users = () => {
         <div>
             <h2>Users</h2>
             <div className='title-box'>
-            <p>Welcome, {user?.username}</p>
+            <p>Welcome, {user?.username.split('@')[0]}</p>
             <button onClick={logout}>Logout</button>
             </div>
            
