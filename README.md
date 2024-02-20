@@ -1,70 +1,84 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tutorial 4
 
-## Available Scripts
+* *Date Created*: 19 February 2024
+* *Last Modification Date*: 20 February 2024
+* *Tutorials URL*: https://git.cs.dal.ca/anagpal/csci-5709-tutorials
+* *GitLab URL*: https://git.cs.dal.ca/anagpal/csci-5709-tutorials/-/tree/main/Tutorial4
+* *Github URL*: https://github.com/ashishnagpal2498/t4-web
+* *Deployment Link*: https://t4-web-profile.netlify.app/
 
-In the project directory, you can run:
+## Authors
 
-### `npm start`
+* [Ashish Nagpal](ashish.nagpal@dal.ca)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To start with the project, I created a new sample react application using ```npx create-react-app .``` command.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. [React](https://legacy.reactjs.org/docs/getting-started.html/) - Web framework
+2. [Npm](https://docs.npmjs.com//) - Dependency Management
+3. [Node](https://nodejs.org/docs/latest/api/) - Javascript Runtime environment
 
-### `npm run build`
+### Installing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the project repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Go into the project directory and install the required dependency using ```npm install``` command.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Once the dependencies are installed, start the development server by ```npm start``` command.
 
-### `npm run eject`
+4. Server will be running on port - 3000 [http://localhost:3000](http://localhost:3000). 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The deployment is made through Netlify.   
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a9e0a933-8647-452f-adb9-545559a92a82/deploy-status)](https://app.netlify.com/sites/t4-web-profile/deploys)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Sources Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Code 
 
-## Learn More
+### 1.  Users.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*Lines 18 - 33*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+ useEffect(() => {
+        console.log("UseEffect Run")
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get("https://express-t4.onrender.com/api/users");
+                if (response.status === 200) {
+                    setUsers(response.data);
+                    console.log(response.data);
+                }
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
 
-### Code Splitting
+        }
+        fetchUsers();
+    }, []);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The code above was created by adapting the code in [blog.logrocket](https://blog.logrocket.com/useeffect-react-hook-complete-guide/#:~:text=This%20may%20sound%20strange%20initially,UI%20because%20they%20run%20asynchronously.) as shown below: 
 
-### Analyzing the Bundle Size
+```js
+ useEffect(() => {
+    console.log("useEffect local storage");
+    const persistedTitle = localStorage.getItem("title");
+    setTitle(persistedTitle || []);
+  }, []);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- The code was used to have an understanding on different use-case of useEffect Hook. 
 
-### Making a Progressive Web App
+- I used the code because I wanted to make the call only once when the component mounts. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- I used the empty square brackets and called the users API to fetch the details of all the users using axios.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+* I am grateful to the coding community for all of their hardwork in materials related to frontend development. The content provided served as a foundation for understanding and learning it's functionality and logic. 

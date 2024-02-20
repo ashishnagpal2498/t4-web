@@ -35,10 +35,21 @@ const UserDetails = () => {
           <h3>{user.name}</h3>
           <p><strong>Email: </strong> {user.email}</p>
           <p> <strong>Age: </strong> {user.age}</p>
+          <p> <strong>Gender: </strong> {user.gender}</p>
           <p><strong>Address: </strong> {user.address}</p>
           <p> <strong>Phone: </strong> {user.phone}</p>
           <p><strong>Company: </strong>{user.company}</p>
           <p><strong>Tags: </strong> {user.tags.join(", ")}</p>
+          <p><strong>Balance: </strong> {user.balance}</p>
+          <p><strong>Eye Color: </strong> {user.eyeColor}</p>
+          <p>
+          <strong>Friends: </strong>
+            <ul>
+              {user.friends.map((friend) => (
+                <li key={friend.id}>{friend.name}</li>
+              ))}
+            </ul>
+            </p>
           <p><strong>About: </strong> {user.about}</p>
         </div>
       </div>
