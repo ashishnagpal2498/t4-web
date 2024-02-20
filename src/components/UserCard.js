@@ -2,17 +2,15 @@ import React from 'react';
 import '../stylesheets/user-card.css'
 import { Link } from 'react-router-dom';
 
-const UserCard = ({ user,onClick }) => {
+const UserCard = ({ user }) => {
   return (
-    <div className="user-card" >
-      <Link to={`/${user._id}`} >
+    <Link to={`/${user._id}`} className="user-card" >
       <img src={user.picture} alt={user.name} />
       <div className="user-info">
         <h3>{user.name}</h3>
         <p>{user.email}</p>
       </div>
-      </Link>
-    </div>
+    </Link>
   );
 };
 

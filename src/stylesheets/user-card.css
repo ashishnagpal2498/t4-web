@@ -5,6 +5,23 @@
     justify-content: center;
     padding: 1em;
 }
+h2 {
+    text-align: center;
+}
+
+.title-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.search-box {
+    flex-basis: 100%;
+    margin: 0 3em;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
 .user-card {
     display: flex;
     align-items: center;

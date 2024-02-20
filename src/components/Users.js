@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import UserDetails from './UserDetails';
 import UserCard from './UserCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
@@ -40,11 +39,14 @@ const Users = () => {
     )
     return (
         <div>
-            <h2>Users Page</h2>
-            <p>Welcome, {user.username}</p>
+            <h2>Users</h2>
+            <div className='title-box'>
+            <p>Welcome, {user?.username}</p>
             <button onClick={logout}>Logout</button>
+            </div>
+           
             <div className="users-container">
-                    <input type='text' onChange={(e) => setSearchTerm(e.target.value)} />
+                    <input className='search-box' placeholder='Search User' type='text' onChange={(e) => setSearchTerm(e.target.value)} />
                     {filteredUsers.map(user => (
                         <UserCard key={user._id} user={user} />
                     ))}
